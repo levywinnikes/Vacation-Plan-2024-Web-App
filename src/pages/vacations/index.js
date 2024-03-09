@@ -1,14 +1,22 @@
-import { Row } from "antd";
+import { Modal, Row } from "antd";
 import React, { Fragment, useEffect, useState } from "react";
 import Button from "../../components/button";
 import ListVacations from "./listVacations";
 import "./styles.css";
+import VacationForm from "./vacationForm";
 
 // import { Container } from './styles';
 
 function Vacations() {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
+
+  const [addVacationModalVisible, setAddVacationModalVisible] = useState(false);
+
+  function toggleModalVacationVisible() {
+    setAddVacationModalVisible(!addVacationModalVisible);
+  }
+
   function getRegisteredVacations() {
     setData([
       {
@@ -45,7 +53,15 @@ function Vacations() {
 
   return (
     <div className="vacation-page">
+      <Modal
+        onCancel={toggleModalVacationVisible}
+        open={addVacationModalVisible}
+      >
+        <VacationForm />
+      </Modal>
+
       <Button
+        onClick={toggleModalVacationVisible}
         style={{
           position: "absolute",
           bottom: 20,
@@ -58,7 +74,11 @@ function Vacations() {
       >
         +
       </Button>
-      <ListVacations listVacations={data} loading={loading} />
+      <ListVacations
+        showAddVacation={toggleModalVacationVisible}
+        listVacations={data}
+        loading={loading}
+      />
     </div>
   );
 }
