@@ -8,7 +8,7 @@ import ShowVacation from "./showVacation";
 function ListVacations({
   listVacations = [],
   loading = false,
-  showAddVacation = () => {},
+  showEditVacation = () => {},
 }) {
   return (
     <Fragment>
@@ -18,7 +18,18 @@ function ListVacations({
         <Row gutter={[8, 8]} style={{ width: "100%" }}>
           {listVacations.map((vacation, index) => {
             return (
-              <Col xxl={4} xl={6} lg={6} md={6} sm={8} xs={12}>
+              <Col
+                style={{
+                  cursor: "pointer",
+                }}
+                onClick={() => showEditVacation({ ...vacation, index })}
+                xxl={4}
+                xl={6}
+                lg={6}
+                md={6}
+                sm={8}
+                xs={12}
+              >
                 <ShowVacation key={index} vacationObject={vacation} />
               </Col>
             );

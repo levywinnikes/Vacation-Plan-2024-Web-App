@@ -1,16 +1,37 @@
-import { Col, Form, Row } from "antd";
-import React, { Fragment, useState } from "react";
+import { Form, Row } from "antd";
+import React, { Fragment, useEffect, useState } from "react";
 import InputText from "../../../components/input/text";
 import InputTextArea from "../../../components/input/textArea";
 import InputDate from "../../../components/input/date";
-import Button from "../../../components/button";
 import Participants from "./participants";
+import VacationModalFooter from "./footer";
 
 // import { Container } from './styles';
 
-function VacationForm() {
+function VacationForm({
+  selectedVacation,
+  addVacation,
+  editVacation,
+  removeVacation,
+  toggleModalVacationVisible,
+}) {
   const [form] = Form.useForm();
   const [participants, setParticipants] = useState([]);
+
+  useEffect(() => {
+    console.log(selectedVacation, "SV");
+
+    if (selectedVacation) {
+      form.setFieldsValue(selectedVacation);
+    } else {
+      resetForm();
+    }
+  }, [selectedVacation]);
+
+  function resetForm() {
+    form.resetFields();
+    setParticipants([]);
+  }
 
   return (
     <Fragment>
@@ -73,6 +94,14 @@ function VacationForm() {
         <Participants
           participantsList={participants}
           setParticipantsList={setParticipants}
+        />
+        <VacationModalFooter
+          form={form}
+          toggleModalVacationVisible={toggleModalVacationVisible}
+          addVacation={addVacation}
+          removeVacation={removeVacation}
+          selectedVacation={selectedVacation}
+          editVacation={editVacation}
         />
       </Row>
     </Fragment>

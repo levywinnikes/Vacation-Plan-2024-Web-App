@@ -59,31 +59,6 @@ function InputTextArea({
     );
   }
 
-  function FormItem() {
-    return (
-      <Form.Item
-        {...field}
-        fieldKey={fieldKey}
-        rules={[
-          {
-            required,
-            message: label ? `${label} é obrigatório` : "",
-          },
-        ]}
-        required={required}
-        name={name}
-        label={label}
-      >
-        <Input.TextArea
-          style={style}
-          className={className}
-          disabled={disabled}
-          placeholder={placeholder}
-        />
-      </Form.Item>
-    );
-  }
-
   return (
     <Col
       className="input-home"
