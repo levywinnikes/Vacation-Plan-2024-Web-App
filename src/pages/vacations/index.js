@@ -4,24 +4,20 @@ import Button from "../../components/button";
 import ListVacations from "./listVacations";
 import "./styles.css";
 import VacationForm from "./vacationForm";
-import background1 from "../../assets/images/1.jpeg";
-import background2 from "../../assets/images/2.jpeg";
-import background3 from "../../assets/images/3.jpeg";
-import background4 from "../../assets/images/4.jpeg";
+
 import Title from "./vacationForm/title";
 import { useDispatch, useSelector } from "react-redux";
 import dayjs from "dayjs";
 import SocialMedia from "./socialMedia";
+import Background from "./background";
 
 // import { Container } from './styles';
 
 function Vacations() {
-  const backgrounds = [background1, background2, background3, background4];
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
   const [addVacationModalVisible, setAddVacationModalVisible] = useState(false);
   const [selectedVacation, setSelectedVacation] = useState(null);
-  const [currentBackgroundIndex, setCurrentBackgroundIndex] = useState(0);
   const vacations = useSelector((state) => state.vacations);
 
   const dispatch = useDispatch();
@@ -89,31 +85,9 @@ function Vacations() {
     getRegisteredVacations();
   }, []);
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentBackgroundIndex(
-        (prevIndex) => (prevIndex + 1) % backgrounds.length
-      );
-    }, 60000);
-
-    return () => clearInterval(intervalId);
-  }, []);
-
   return (
     <Row className="vacation-page">
-      <div
-        style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(${backgrounds[currentBackgroundIndex]})`,
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
-        }}
-      ></div>
+      <Background />
 
       <Col
         style={{
@@ -138,6 +112,7 @@ function Vacations() {
           showEditVacation={showEditVacation}
           listVacations={data}
           loading={loading}
+          setLoading={setLoading}
         />
       </Col>
       <Modal
