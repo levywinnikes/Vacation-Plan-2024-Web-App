@@ -1,4 +1,4 @@
-import { Row } from "antd";
+import { message, Row } from "antd";
 import React, { Fragment } from "react";
 import Button from "../../../../components/button";
 
@@ -13,11 +13,18 @@ function VacationModalFooter({
   toggleModalVacationVisible,
 }) {
   function actionSave() {
-    if (selectedVacation?.index || selectedVacation?.index === 0) {
-      editVacation(form.getFieldsValue(), selectedVacation.index);
-    } else {
-      addVacation(form.getFieldsValue());
-    }
+    form
+      .validateFields()
+      .then(() => {
+        if (selectedVacation?.index || selectedVacation?.index === 0) {
+          editVacation(form.getFieldsValue(), selectedVacation.index);
+        } else {
+          addVacation(form.getFieldsValue());
+        }
+      })
+      .catch(() => {
+        message.error("Check all required fields");
+      });
   }
 
   return (
