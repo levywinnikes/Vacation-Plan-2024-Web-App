@@ -1,6 +1,5 @@
 import React from "react";
-import { Col, DatePicker, Form, ConfigProvider } from "antd";
-import ptBR from "antd/es/locale/pt_BR";
+import { Col, DatePicker, Form } from "antd";
 import "moment/locale/pt-br";
 
 function InputDate({
@@ -51,6 +50,7 @@ function InputDate({
           label={label}
         >
           <DatePicker
+            format={"MM/DD/YYYY"}
             disabled={disabled}
             onChange={onChange}
             style={{

@@ -6,12 +6,12 @@ import React from "react";
 function NoVacationsRegistered({ showAddVacation = () => {} }) {
   return (
     <Row
+      onClick={showAddVacation}
       style={{
         display: "flex",
         alignItems: "center",
         height: "200px",
         cursor: "pointer",
-        // transform: "translate(0, -50%)",
       }}
     >
       <div
@@ -21,7 +21,7 @@ function NoVacationsRegistered({ showAddVacation = () => {} }) {
       >
         You haven't registered any vacation destinations yet.
       </div>
-      <div onClick={showAddVacation}>Click here to register now.</div>
+      <div>Click here to register now.</div>
     </Row>
   );
 }

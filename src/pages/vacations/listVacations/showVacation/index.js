@@ -1,13 +1,11 @@
 import React from "react";
-import moment from "moment";
 
 import { CalendarOutlined, UserOutlined } from "@ant-design/icons";
+import Moment from "react-moment";
 
 // import { Container } from './styles';
 
 function ShowVacation({ vacationObject }) {
-  const formattedDate = moment(vacationObject?.date).format("MM/DD/YYYY");
-
   return (
     <div
       style={{
@@ -29,6 +27,7 @@ function ShowVacation({ vacationObject }) {
             borderRadius: "8px",
             opacity: 0.6,
           }}
+          alt="Vacation thumbnail"
           src={vacationObject?.thumbnail}
         ></img>
       )}
@@ -84,7 +83,7 @@ function ShowVacation({ vacationObject }) {
           textShadow: "2px 2px 4px rgba(0, 0, 0, 1)",
         }}
       >
-        {formattedDate}
+        <Moment format="MM/DD/YYYY">{vacationObject?.date?.$d}</Moment>
       </div>
 
       <div

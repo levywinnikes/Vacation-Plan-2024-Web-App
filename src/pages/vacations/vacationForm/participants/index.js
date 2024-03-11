@@ -1,4 +1,4 @@
-import { Col, Form, Row } from "antd";
+import { Col, Form, message, Row } from "antd";
 import React, { Fragment } from "react";
 import Button from "../../../../components/button";
 import InputText from "../../../../components/input/text";
@@ -10,6 +10,16 @@ function Participants({ participantsList = [], setParticipantsList }) {
 
   function addParticipant() {
     const { participant } = form.getFieldsValue();
+
+    if (!participant) {
+      message.warning("Participant field cannot be empty");
+      return;
+    }
+
+    if (participantsList.includes(participant)) {
+      message.warning("The participant is already in the list");
+      return;
+    }
 
     participantsList.push(participant);
     setParticipantsList([...participantsList]);

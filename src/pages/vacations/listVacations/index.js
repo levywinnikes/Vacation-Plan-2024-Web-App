@@ -6,6 +6,7 @@ import ShowVacation from "./showVacation";
 // import { Container } from './styles';
 
 function ListVacations({
+  showAddVacation,
   listVacations = [],
   loading = false,
   showEditVacation = () => {},
@@ -13,7 +14,7 @@ function ListVacations({
   return (
     <Fragment>
       {listVacations?.length === 0 ? (
-        <NoVacationsRegistered />
+        <NoVacationsRegistered showAddVacation={showAddVacation} />
       ) : (
         <Row
           gutter={[8, 0]}

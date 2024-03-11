@@ -3,6 +3,8 @@ import React, { Fragment, useEffect, useState } from "react";
 import InputText from "../../../components/input/text";
 import InputTextArea from "../../../components/input/textArea";
 import InputDate from "../../../components/input/date";
+import InvisibleFields from "../../../components/input/invisibleFields";
+
 import Participants from "./participants";
 import VacationModalFooter from "./footer";
 
@@ -19,10 +21,11 @@ function VacationForm({
   const [participants, setParticipants] = useState([]);
 
   useEffect(() => {
+    resetForm();
+
     if (selectedVacation) {
       form.setFieldsValue(selectedVacation);
-    } else {
-      resetForm();
+      setParticipants(selectedVacation?.participants);
     }
   }, [selectedVacation]);
 
@@ -31,9 +34,26 @@ function VacationForm({
     setParticipants([]);
   }
 
+  useEffect(() => {
+    let updateParticipantsForm = form.getFieldsValue();
+    updateParticipantsForm.participants = participants;
+
+    form.setFieldsValue(updateParticipantsForm);
+  }, [participants]);
+
+  function changeDate(e) {
+    let newDate = form.getFieldsValue();
+
+    newDate.date = e;
+
+    form.setFieldValue(newDate);
+  }
+
   return (
     <Fragment>
       <Row>
+        <InvisibleFields form={form} names={["participants"]} />
+
         <InputText
           layout="vertical"
           name={"title"}
@@ -63,6 +83,7 @@ function VacationForm({
         />
 
         <InputDate
+          onChange={changeDate}
           layout="vertical"
           name={"date"}
           form={form}

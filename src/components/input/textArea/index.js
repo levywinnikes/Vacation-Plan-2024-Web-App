@@ -85,7 +85,7 @@ function InputTextArea({
             rules={[
               {
                 required,
-                message: label ? `${label} é obrigatório` : "",
+                message: label ? `${label} is required` : "",
               },
             ]}
             required={required}
@@ -107,7 +107,7 @@ function InputTextArea({
           rules={[
             {
               required,
-              message: label ? `${label} é obrigatório` : "",
+              message: label ? `${label} is required` : "",
             },
           ]}
           required={required}

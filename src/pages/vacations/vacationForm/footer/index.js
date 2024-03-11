@@ -17,6 +17,8 @@ function VacationModalFooter({
       .validateFields()
       .then(() => {
         if (selectedVacation?.index || selectedVacation?.index === 0) {
+
+          
           editVacation(form.getFieldsValue(), selectedVacation.index);
         } else {
           addVacation(form.getFieldsValue());

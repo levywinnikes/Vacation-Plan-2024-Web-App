@@ -144,7 +144,7 @@ function InputText({
             rules={[
               {
                 required,
-                message: label ? `${label} é obrigatório` : "",
+                message: label ? `${label} is required` : "",
               },
             ]}
           >
@@ -179,7 +179,7 @@ function InputText({
             rules={[
               {
                 required,
-                message: label ? `${label} é obrigatório` : "",
+                message: label ? `${label} is required` : "",
               },
             ]}
           >

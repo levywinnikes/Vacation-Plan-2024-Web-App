@@ -1,5 +1,5 @@
 import { Col, Modal, Row } from "antd";
-import React, { Fragment, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../../components/button";
 import ListVacations from "./listVacations";
 import "./styles.css";
@@ -93,7 +93,7 @@ function Vacations() {
       setCurrentBackgroundIndex(
         (prevIndex) => (prevIndex + 1) % backgrounds.length
       );
-    }, 20000);
+    }, 60000);
 
     return () => clearInterval(intervalId);
   }, []);
@@ -132,6 +132,7 @@ function Vacations() {
         span={24}
       >
         <ListVacations
+          showAddVacation={showAddVacation}
           toggleModalVacationVisible={toggleModalVacationVisible}
           showEditVacation={showEditVacation}
           listVacations={data}
