@@ -128,7 +128,6 @@ function Vacations() {
         style={{
           display: "flex",
           justifyContent: "center",
-          height: "50vh",
         }}
         span={24}
       >
