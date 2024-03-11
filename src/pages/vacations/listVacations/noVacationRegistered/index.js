@@ -9,7 +9,9 @@ function NoVacationsRegistered({ showAddVacation = () => {} }) {
       style={{
         display: "flex",
         alignItems: "center",
-        transform: "translate(0, -50%)",
+        height: "200px",
+        cursor: "pointer",
+        // transform: "translate(0, -50%)",
       }}
     >
       <div
@@ -19,14 +21,7 @@ function NoVacationsRegistered({ showAddVacation = () => {} }) {
       >
         You haven't registered any vacation destinations yet.
       </div>
-      <div
-        onClick={showAddVacation}
-        style={{
-          cursor: "pointer",
-        }}
-      >
-        Click here to register now.
-      </div>
+      <div onClick={showAddVacation}>Click here to register now.</div>
     </Row>
   );
 }

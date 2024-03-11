@@ -76,6 +76,19 @@ function VacationForm({
           required
         />
 
+        <InputText
+          layout="vertical"
+          name={"thumbnail"}
+          form={form}
+          label={"Thumbnail link"}
+          xxl={24}
+          lg={24}
+          md={24}
+          sm={24}
+          xl={24}
+          xs={24}
+        />
+
         <InputTextArea
           layout="vertical"
           name={"description"}
@@ -87,7 +100,6 @@ function VacationForm({
           sm={24}
           xl={24}
           xs={24}
-          required
         />
         <Participants
           participantsList={participants}
