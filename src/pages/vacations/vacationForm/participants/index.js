@@ -1,5 +1,5 @@
-import { Col, Form, message, Row } from "antd";
-import React, { Fragment } from "react";
+import { Col, Form, message, Modal, Row } from "antd";
+import React, { Fragment, useState } from "react";
 import Button from "../../../../components/button";
 import InputText from "../../../../components/input/text";
 
@@ -7,7 +7,7 @@ import InputText from "../../../../components/input/text";
 
 function Participants({ participantsList = [], setParticipantsList }) {
   const [form] = Form.useForm();
-
+  const [removeParticipantName, setRemoveParticipantName] = useState(null);
   function addParticipant() {
     const { participant } = form.getFieldsValue();
 
@@ -27,12 +27,17 @@ function Participants({ participantsList = [], setParticipantsList }) {
     form.resetFields();
   }
 
-  function removeParticipant(name) {
+  const handleRemove = () => {
     const updatedList = participantsList.filter(
-      (participant) => participant !== name
+      (participant) => participant !== removeParticipantName
     );
     setParticipantsList(updatedList);
-  }
+    setRemoveParticipantName(null);
+  };
+
+  const showModal = (name) => {
+    setRemoveParticipantName(name);
+  };
 
   return (
     <Row
@@ -63,14 +68,23 @@ function Participants({ participantsList = [], setParticipantsList }) {
         <Button onClick={addParticipant}>+</Button>
       </Col>
 
-      <Row style={{ width: "100%", padding: "8px" }}>
+      <Row style={{ width: "100%", padding: "8px", marginBottom: "20px" }}>
         {participantsList.map((participant) => {
           return (
             <Fragment>
-              <Col span={20}> {participant}</Col>
-              <Col span={4}>
+              <Col span={18} style={{ marginBottom: "8px" }}>
+                {participant}
+              </Col>
+              <Col
+                span={6}
+                style={{
+                  display: "flex",
+                  justifyContent: "flex-end",
+                  marginBottom: "8px",
+                }}
+              >
                 <Button
-                  onClick={() => removeParticipant(participant)}
+                  onClick={() => showModal(participant)}
                   type="tertiary"
                   style={{
                     fontWeight: "bold",
@@ -87,6 +101,15 @@ function Participants({ participantsList = [], setParticipantsList }) {
           );
         })}
       </Row>
+
+      <Modal
+        title="Confirm Removal"
+        visible={!!removeParticipantName}
+        onOk={handleRemove}
+        onCancel={() => setRemoveParticipantName(null)}
+      >
+        <p>Are you sure you want to remove this participant?</p>
+      </Modal>
     </Row>
   );
 }
