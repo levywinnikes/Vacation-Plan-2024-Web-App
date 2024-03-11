@@ -32,6 +32,7 @@ export const StyledButton = styled.button`
   transition: 0.3s;
   border: none;
   font-family: Poppins;
+  opacity: 0.9;
 
   &:hover {
     cursor: pointer;

@@ -14,7 +14,7 @@ function Button(props) {
     plain = false,
   } = props;
   const theme = {
-    primaryColor: "blue", // Defina a cor primária aqui
+    primaryColor: "#3498db",
   };
 
   return (

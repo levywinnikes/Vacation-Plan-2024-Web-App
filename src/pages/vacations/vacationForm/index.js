@@ -98,7 +98,7 @@ function VacationForm({
           layout="vertical"
           name={"thumbnail"}
           form={form}
-          label={"Thumbnail link"}
+          label={"Thumbnail link image (Insert a valid URL image)"}
           xxl={24}
           lg={24}
           md={24}

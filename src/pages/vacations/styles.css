@@ -7,3 +7,134 @@
     transition: background-image 0.5s ease-in-out
 }
 
+
+  
+  /* Styling the inputs inside the modal */
+  .ant-input {
+    background-color: rgba(255, 255, 255, 0.1); /* Sets the background of inputs to semi-transparent */
+    border-color: #fff; /* Sets the border color of inputs */
+    color: #fff; /* Sets the text color of inputs */
+  }
+  
+  /* Styling inputs when focused */
+  .ant-input:focus {
+    background-color: rgba(255, 255, 255, 0.2); /* Sets the background of focused inputs to semi-transparent */
+  }
+  
+  /* Styling disabled inputs */
+  .ant-input[disabled] {
+    background-color: rgba(255, 255, 255, 0.05); /* Sets the background of disabled inputs to semi-transparent */
+  }
+  
+/* Styling the placeholder text color */
+.ant-input::placeholder {
+    color: rgba(255, 255, 255, 0.5); /* Sets the color of the placeholder text */
+  }
+
+  /* Styling the hover effect on inputs */
+.ant-input:hover {
+    background-color: rgba(255, 255, 255, 0.15); /* Sets the background color of inputs on hover */
+  }
+
+  .ant-modal-content {
+    background-color: rgba(0, 0, 0, 0.8) !important; /* Sets the modal background to semi-transparent */
+  }
+
+  .ant-form-item-required{
+    color: #fff !important;
+    font-weight: bold;
+  }
+  
+  label{
+    color: #fff !important;
+    font-weight: bold;
+  }
+
+ 
+
+  .ant-form-item-label{
+    color: #fff !important;
+    font-weight: bold;
+  }
+
+  /* Styling the DatePicker */
+.ant-picker {
+    background-color: rgba(255, 255, 255, 0.1); /* Sets the background color of the DatePicker to semi-transparent */
+    border-color: #fff; /* Sets the border color of the DatePicker */
+    color: #fff; /* Sets the text color of the DatePicker */
+  }
+  
+  /* Styling the DatePicker when focused */
+  .ant-picker-focused {
+    background-color: rgba(255, 255, 255, 0.2); /* Sets the background color of the DatePicker when focused to semi-transparent */
+  }
+  
+  /* Styling the DatePicker input */
+  .ant-picker-input > input {
+    color: #fff; /* Sets the text color of the DatePicker input */
+  }
+  
+  /* Styling the DatePicker icon */
+  .ant-picker-suffix {
+    color: #fff; /* Sets the color of the DatePicker icon */
+  }
+  
+  /* Styling the DatePicker dropdown */
+  .ant-picker-dropdown {
+    background-color: rgba(0, 0, 0, 0.6) !important; /* Sets the background color of the DatePicker dropdown to semi-transparent */
+  }
+  
+  /* Styling the DatePicker header */
+  .ant-picker-header {
+    background-color: rgba(0, 0, 0, 0.2) !important; /* Sets the background color of the DatePicker header to semi-transparent */
+  }
+  
+  /* Styling the DatePicker panel */
+  .ant-picker-panel {
+    background-color: rgba(0, 0, 0, 0.2) !important; /* Sets the background color of the DatePicker panel to semi-transparent */
+  }
+  
+  /* Styling the DatePicker today button */
+  .ant-picker-today-btn {
+    color: #fff; /* Sets the color of the DatePicker today button */
+  }
+  
+  /* Styling the DatePicker footer */
+  .ant-picker-footer {
+    background-color: rgba(0, 0, 0, 0.2) !important; /* Sets the background color of the DatePicker footer to semi-transparent */
+  }
+  
+  .ant-picker-input > input {
+    color: #fff; /* Sets the text color of the DatePicker input */
+    background-color: rgba(255, 255, 255, 0.1); /* Sets the background color of the DatePicker input to semi-transparent */
+    border-color: #fff; /* Sets the border color of the DatePicker input */
+  }
+  
+  .ant-picker{
+    background-color: rgba(0, 0, 0, 0.6) !important; /* Sets the background color of the DatePicker dropdown to semi-transparent */
+
+  }
+
+  /* Styling the DatePicker input placeholder */
+  .ant-picker-input > input::placeholder {
+    color: rgba(255, 255, 255, 0.5); /* Sets the color of the DatePicker input placeholder */
+  }
+
+  .ant-modal-close{
+    color: #fff !important;
+  }
+
+
+.ant-input:valid {
+    background-color: rgba(255, 255, 255, 0) !important;
+    border-color: #fff;
+    color: #fff;
+    font-weight: bold;
+}
+
+
+.ant-input:invalid {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border-color: #fff;
+    color: #fff;
+}

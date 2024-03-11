@@ -73,7 +73,14 @@ function Participants({ participantsList = [], setParticipantsList }) {
         {participantsList.map((participant) => {
           return (
             <Fragment>
-              <Col span={18} style={{ marginBottom: "8px" }}>
+              <Col
+                span={18}
+                style={{
+                  marginBottom: "8px",
+                  color: "#FFF",
+                  fontWeight: "bold",
+                }}
+              >
                 <UserOutlined style={{ marginRight: "6px" }} />
 
                 {participant}
@@ -106,12 +113,19 @@ function Participants({ participantsList = [], setParticipantsList }) {
       </Row>
 
       <Modal
+        closable={false}
         title="Confirm Removal"
         visible={!!removeParticipantName}
         onOk={handleRemove}
         onCancel={() => setRemoveParticipantName(null)}
       >
-        <p>Are you sure you want to remove this participant?</p>
+        <p
+          style={{
+            color: "#FFF",
+          }}
+        >
+          Are you sure you want to remove this participant?
+        </p>
       </Modal>
     </Row>
   );
