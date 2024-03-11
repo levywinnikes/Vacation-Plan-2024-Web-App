@@ -37,15 +37,12 @@ function VacationForm({
   useEffect(() => {
     let updateParticipantsForm = form.getFieldsValue();
     updateParticipantsForm.participants = participants;
-
     form.setFieldsValue(updateParticipantsForm);
   }, [participants]);
 
   function changeDate(e) {
     let newDate = form.getFieldsValue();
-
     newDate.date = e;
-
     form.setFieldValue(newDate);
   }
 

@@ -11,6 +11,7 @@ import background4 from "../../assets/images/4.jpeg";
 import Title from "./vacationForm/title";
 import { useDispatch, useSelector } from "react-redux";
 import dayjs from "dayjs";
+import SocialMedia from "./socialMedia";
 
 // import { Container } from './styles';
 
@@ -170,6 +171,7 @@ function Vacations() {
       >
         +
       </Button>
+      <SocialMedia />
     </Row>
   );
 }
