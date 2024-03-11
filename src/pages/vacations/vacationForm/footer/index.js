@@ -13,7 +13,7 @@ function VacationModalFooter({
   toggleModalVacationVisible,
 }) {
   function actionSave() {
-    if (selectedVacation?.index === 0 || selectedVacation.index) {
+    if (selectedVacation?.index || selectedVacation?.index === 0) {
       editVacation(form.getFieldsValue(), selectedVacation.index);
     } else {
       addVacation(form.getFieldsValue());
