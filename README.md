@@ -7,8 +7,10 @@ This is a demo vacation management system created by André L. Scarpim Winnikes 
 1. Install dependencies using `npm install`.
 2. Start the project with `npm start`.
 3. Open [http://localhost:3000](http://localhost:3000) in your browser to view the project in development mode.
-4. You can register your vacations using the provided form.
-5. The registered vacations will be displayed in the list.
+4. Click on the "+" button on the screen to register new vacations.
+5. A modal will open with fields to fill out your vacation details.
+6. Your vacation data will be saved in Local Storage and managed with Redux.
+7. You can view your registered vacations in the list.
 
 ## Requirements
 
@@ -18,4 +20,4 @@ This is a demo vacation management system created by André L. Scarpim Winnikes 
 
 - Created by André L. Scarpim Winnikes
 - GitHub: [https://github.com/levywinnikes](https://github.com/levywinnikes)
-- LinkedIn: [https://www.linkedin.com/in/andre-winnikes-5a511b88/](https://www.linkedin.com/in/andre-winnikes-5a511b88/)
+- LinkedIn: [https://www.linkedin.com/in/andre-winnikes-5a511b88/]
