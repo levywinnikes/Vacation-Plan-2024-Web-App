@@ -2,6 +2,7 @@ import { Col, Form, message, Modal, Row } from "antd";
 import React, { Fragment, useState } from "react";
 import Button from "../../../../components/button";
 import InputText from "../../../../components/input/text";
+import { UserOutlined } from "@ant-design/icons";
 
 // import { Container } from './styles';
 
@@ -73,6 +74,8 @@ function Participants({ participantsList = [], setParticipantsList }) {
           return (
             <Fragment>
               <Col span={18} style={{ marginBottom: "8px" }}>
+                <UserOutlined style={{ marginRight: "6px" }} />
+
                 {participant}
               </Col>
               <Col
