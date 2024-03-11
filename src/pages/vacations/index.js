@@ -9,6 +9,8 @@ import background2 from "../../assets/images/2.jpeg";
 import background3 from "../../assets/images/3.jpeg";
 import background4 from "../../assets/images/4.jpeg";
 import Title from "./vacationForm/title";
+import { useDispatch, useSelector } from "react-redux";
+import dayjs from "dayjs";
 
 // import { Container } from './styles';
 
@@ -19,6 +21,20 @@ function Vacations() {
   const [addVacationModalVisible, setAddVacationModalVisible] = useState(false);
   const [selectedVacation, setSelectedVacation] = useState(null);
   const [currentBackgroundIndex, setCurrentBackgroundIndex] = useState(0);
+  const vacations = useSelector((state) => state.vacations);
+
+  const dispatch = useDispatch();
+
+  function saveOnRedux() {
+    dispatch({
+      type: "SET_VACATIONS",
+      vacations: [...data],
+    });
+  }
+
+  useEffect(() => {
+    saveOnRedux();
+  }, [data]);
 
   function toggleModalVacationVisible() {
     setAddVacationModalVisible(!addVacationModalVisible);
@@ -58,30 +74,14 @@ function Vacations() {
   }
 
   function getRegisteredVacations() {
-    setData([
-      {
-        title: "Malé",
-        description: "Islamic Centre mosque & fish market",
-        location: "Maldives",
-        thumbnail:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5xlOKlzXOWXb2mPzWkRDU9neqHCrpI5FwwFMrZryhTPMI5rFTMw1lkNxKR8HrEUSDlIpheElaz5KkYij-1Az4Jw-yuk2VDgE4Mvu0Ng",
-      },
-      {
-        title: "Malé",
-        description: "Islamic Centre mosque & fish market",
-        location: "Maldives",
-        thumbnail:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5xlOKlzXOWXb2mPzWkRDU9neqHCrpI5FwwFMrZryhTPMI5rFTMw1lkNxKR8HrEUSDlIpheElaz5KkYij-1Az4Jw-yuk2VDgE4Mvu0Ng",
-      },
-      {
-        title: "Malé",
-        description: "Islamic Centre mosque & fish market",
-        location: "Maldives",
-        thumbnail:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5xlOKlzXOWXb2mPzWkRDU9neqHCrpI5FwwFMrZryhTPMI5rFTMw1lkNxKR8HrEUSDlIpheElaz5KkYij-1Az4Jw-yuk2VDgE4Mvu0Ng",
-      },
-    ]);
-    setLoading(false);
+    const formattedVacations = vacations.map((vacation) => {
+      return {
+        ...vacation,
+        date: dayjs(vacation.date),
+      };
+    });
+
+    setData(formattedVacations);
   }
 
   useEffect(() => {
