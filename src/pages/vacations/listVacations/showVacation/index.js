@@ -7,14 +7,32 @@ function ShowVacation({ vacationObject }) {
     <div
       style={{
         width: "100%",
+        height: "100%",
+        backgroundColor: "rgba(0, 0, 0, 0.5)",
+        borderRadius: "8px",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        position: "relative",
       }}
     >
-      <img style={{ width: "100%" }} src={vacationObject?.thumbnail}></img>
+      {vacationObject?.thumbnail && (
+        <img
+          style={{
+            width: "100%",
+            height: "100%",
+            borderRadius: "8px",
+            opacity: 0.6,
+          }}
+          src={vacationObject?.thumbnail}
+        ></img>
+      )}
       <h1
         style={{
           position: "absolute",
           top: 0,
           left: 12,
+          textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
         }}
       >
         {vacationObject?.title}
@@ -24,6 +42,8 @@ function ShowVacation({ vacationObject }) {
           position: "absolute",
           bottom: 24,
           left: 12,
+          fontWeight: "bold",
+          textShadow: "2px 2px 4px rgba(0, 0, 0, 1)",
         }}
       >
         {vacationObject?.description}

@@ -19,8 +19,6 @@ function VacationForm({
   const [participants, setParticipants] = useState([]);
 
   useEffect(() => {
-    console.log(selectedVacation, "SV");
-
     if (selectedVacation) {
       form.setFieldsValue(selectedVacation);
     } else {

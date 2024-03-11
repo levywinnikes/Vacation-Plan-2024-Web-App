@@ -5,8 +5,18 @@ import React from "react";
 
 function NoVacationsRegistered({ showAddVacation = () => {} }) {
   return (
-    <Row>
-      <div style={{ marginRight: "4px" }}>
+    <Row
+      style={{
+        display: "flex",
+        alignItems: "center",
+        transform: "translate(0, -50%)",
+      }}
+    >
+      <div
+        style={{
+          marginRight: "4px",
+        }}
+      >
         You haven't registered any vacation destinations yet.
       </div>
       <div

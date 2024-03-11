@@ -15,12 +15,15 @@ function ListVacations({
       {listVacations?.length === 0 ? (
         <NoVacationsRegistered />
       ) : (
-        <Row gutter={[8, 8]} style={{ width: "100%" }}>
+        <Row gutter={[8, 8]} style={{ width: "100%", height: "250px" }}>
           {listVacations.map((vacation, index) => {
             return (
               <Col
                 style={{
                   cursor: "pointer",
+
+                  height: "220px",
+                  width: "100%",
                 }}
                 onClick={() => showEditVacation({ ...vacation, index })}
                 xxl={4}
