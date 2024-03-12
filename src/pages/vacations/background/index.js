@@ -1,17 +1,41 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
+import background1 from "../../../assets/images/1.jpeg";
+import background2 from "../../../assets/images/2.jpeg";
+import background3 from "../../../assets/images/3.jpeg";
+import background4 from "../../../assets/images/4.jpeg";
 
 function Background() {
-  const [currentBackgroundIndex, setCurrentBackgroundIndex] = useState(0);
+  const [currentBackgroundIndex, setCurrentBackgroundIndex] = useState(1);
 
   useEffect(() => {
+    const images = [background1, background2, background3, background4];
+
+    const preLoadImages = () => {
+      images.forEach((image) => {
+        const img = new Image();
+        img.src = image;
+      });
+    };
+
+    preLoadImages();
+
     const intervalId = setInterval(() => {
       setCurrentBackgroundIndex((prevIndex) => (prevIndex % 4) + 1);
-    }, 20000);
+    }, 20000); // Tempo limite para troca de imagens
 
     return () => clearInterval(intervalId);
   }, []);
 
-  return <div className={`background-image-${currentBackgroundIndex}`}></div>;
+  return (
+    <Fragment>
+      <div className={`background-image-${currentBackgroundIndex}`}></div>
+
+      <div style={{ display: "none" }} className={`background-image-1`}></div>
+      <div style={{ display: "none" }} className={`background-image-2`}></div>
+      <div style={{ display: "none" }} className={`background-image-3`}></div>
+      <div style={{ display: "none" }} className={`background-image-4`}></div>
+    </Fragment>
+  );
 }
 
 export default Background;

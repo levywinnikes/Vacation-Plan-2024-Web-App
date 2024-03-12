@@ -4,8 +4,11 @@
     background-color: black;
     color: white;
     margin: -8px;
-    transition: background-image 0.5s ease-in-out
+    transition: background-image 0.5s ease-in-out;
 }
+
+
+
 
 .background-image-1{
   position: fixed;
@@ -17,7 +20,7 @@
   background-repeat: no-repeat !important;
   background-position: center;
   transition: background-image 1s ease-in-out;
-  background:url('../../assets/images/1.jpeg')
+  background:url('../../assets/images/1.jpeg');
 }
 .background-image-2{
   position: fixed;
