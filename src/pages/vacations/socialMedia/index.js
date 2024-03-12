@@ -26,6 +26,7 @@ function SocialMedia() {
           position: "fixed",
           bottom: 12,
           left: 12,
+          opacity: 0.4,
         }}
       />
       <GithubOutlined
@@ -36,6 +37,7 @@ function SocialMedia() {
           position: "fixed",
           bottom: 12,
           left: 72,
+          opacity: 0.4,
         }}
       />
     </Fragment>

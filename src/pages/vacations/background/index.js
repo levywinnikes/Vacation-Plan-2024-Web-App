@@ -29,11 +29,6 @@ function Background() {
   return (
     <Fragment>
       <div className={`background-image-${currentBackgroundIndex}`}></div>
-
-      <div style={{ display: "none" }} className={`background-image-1`}></div>
-      <div style={{ display: "none" }} className={`background-image-2`}></div>
-      <div style={{ display: "none" }} className={`background-image-3`}></div>
-      <div style={{ display: "none" }} className={`background-image-4`}></div>
     </Fragment>
   );
 }

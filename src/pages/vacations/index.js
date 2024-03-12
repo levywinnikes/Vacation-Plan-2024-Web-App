@@ -1,5 +1,5 @@
 import { Col, Modal, Row } from "antd";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Button from "../../components/button";
 import ListVacations from "./listVacations";
 import "./styles.css";
@@ -10,10 +10,15 @@ import { useDispatch, useSelector } from "react-redux";
 import dayjs from "dayjs";
 import SocialMedia from "./socialMedia";
 import Background from "./background";
+import ReactToPrint from "react-to-print";
+import { PrinterOutlined } from "@ant-design/icons";
+import ReportPrint from "./print";
 
 // import { Container } from './styles';
 
 function Vacations() {
+  const componentRef = useRef();
+
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
   const [addVacationModalVisible, setAddVacationModalVisible] = useState(false);
@@ -146,9 +151,63 @@ function Vacations() {
       >
         +
       </Button>
+
       <SocialMedia />
+
+      {/* Print button */}
+      {data?.length > 0 && (
+        <ReactToPrint
+          pageStyle={""}
+          trigger={() => (
+            <Button
+              style={{
+                position: "fixed",
+                borderRadius: "8px",
+                top: 12,
+                right: 12,
+                fontWeight: "bold",
+                height: "60px",
+              }}
+              type="primary"
+            >
+              <PrinterOutlined
+                style={{
+                  fontSize: "32px",
+                  marginRight: "6px",
+                }}
+              />
+            </Button>
+          )}
+          content={() => componentRef.current}
+        />
+      )}
+
+      <div style={{ display: "none" }}>
+        <PrintComponent ref={componentRef} data={data} />
+      </div>
+
+      {/*End Print button */}
     </Row>
   );
 }
 
 export default Vacations;
+
+class PrintComponent extends React.Component {
+  render() {
+    const { data } = this.props;
+
+    return (
+      <div
+        ref={(el) => (this.componentRef = el)}
+        id="divToPrint"
+        style={{
+          margin: "0",
+          padding: "0",
+        }}
+      >
+        <ReportPrint data={data} />
+      </div>
+    );
+  }
+}
